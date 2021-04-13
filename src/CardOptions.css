@@ -1,0 +1,38 @@
+*{
+    margin:0;
+}
+
+.card_content{
+    font-weight: bolder;
+    color: lightsalmon;
+    border-radius: 10;
+}
+
+.card_body .MuiCard-root{
+    height: 35px;
+    width: 120px;
+}
+
+.card_body .card_content{
+    padding-top: 5px;
+    background-color: black;
+    text-align:center;
+}
+
+.card--selected{
+    border-top: solid 5px lightsalmon;
+    border-left: solid 5px lightsalmon;
+}
+
+@media (max-width: 990px){
+    .card_body .card_content{
+        font-size: x-small;
+        align-content: center;
+        text-align: center;
+        padding-top: 10px;
+    }
+    .card_body .MuiCard-root{
+        margin-bottom: 10px;
+        width: 90px;
+    }
+  }

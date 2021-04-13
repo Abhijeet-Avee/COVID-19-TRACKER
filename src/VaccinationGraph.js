@@ -3,18 +3,11 @@ import { Line } from 'react-chartjs-2';
 import numeral from 'numeral';
 
 const casesTypeColors = {
-  cases: {
-    rgba: "rgba(240, 111, 12, 0.4)",   //"#f06f0c"
-    rgb: "rgb(240, 111, 12)"
-  },
-  recovered: {
-    rgba: "rgba(125, 215, 29, 0.4)", //"#7dd71d"
-    rgb: "rgb(125, 215, 29)"
-  },
-  deaths: {
-    rgba: "rgba(251, 68, 67, 0.4)", //"#fb4443"
-    rgb: "rgba(251, 68, 67)"
-  },
+
+  vaccination: {
+    rgba: "rgba(168, 50, 153, 0.4)",
+    rgb: "rgb(168, 50, 153)"
+  }
 };
 
 const options = {
@@ -61,35 +54,35 @@ const options = {
     ],
   },
 };
-function LineGraph({ casesType = 'cases', country, ...props }) {
+function VaccinationGraph({ casesType='vaccination', country, ...props }) {
   const [data, setData] = useState({});
 
   //For plotting graph , we need data in form of [x:y]
-  const buildChartData = (data, casesType = 'cases') => {
+  const buildChartData = (data, casesType = 'vaccination') => {
     const chartData = [];
     let lastDataPoint;
     if (country === 'worldwide') {
-      for (let date in data.cases) {
+      for (let date in data) {
         if (lastDataPoint) {
           const newDataPoint = {
             x: date,
-            y: data[casesType][date] - lastDataPoint
+            y: data[date] - lastDataPoint
           }
           chartData.push(newDataPoint);
         }
-        lastDataPoint = data[casesType][date];
+        lastDataPoint = data[date];
       }
     }
     else {
-      for (let date in data.timeline.cases) {
+      for (let date in data.timeline) {
         if (lastDataPoint) {
           const newDataPoint = {
             x: date,
-            y: data.timeline[casesType][date] - lastDataPoint
+            y: data.timeline[date] - lastDataPoint
           }
           chartData.push(newDataPoint);
         }
-        lastDataPoint = data.timeline[casesType][date];
+        lastDataPoint = data.timeline[date];
       }
     }
     return chartData;
@@ -97,8 +90,8 @@ function LineGraph({ casesType = 'cases', country, ...props }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = country === 'worldwide' ? 'https://disease.sh/v3/covid-19/historical/all?lastdays=90'
-        : `https://disease.sh/v3/covid-19/historical/${country}?lastdays=90`;
+      const url = country === 'worldwide' ? 'https://disease.sh/v3/covid-19/vaccine/coverage?lastdays=30'
+        : `https://disease.sh/v3/covid-19/vaccine/coverage/countries/${country}?lastdays=30`;
       await fetch(url)
         .then(response => {
           return response.json();
@@ -110,8 +103,8 @@ function LineGraph({ casesType = 'cases', country, ...props }) {
         });
     };
     fetchData();
-  }, [country,casesType]);    
-  //condition that updates useEffect when change occurs!! here graph updates for change in country and casesType
+  }, [country]);    
+  //condition that updates useEffect when change occurs!! here graph updates for change in country
 
   return (
     <div className={props.className}>
@@ -131,4 +124,4 @@ function LineGraph({ casesType = 'cases', country, ...props }) {
   )
 }
 
-export default LineGraph;
+export default VaccinationGraph;

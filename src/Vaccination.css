@@ -1,0 +1,87 @@
+*{
+    margin:0;
+  }
+  
+  body{
+    background-color: whitesmoke;
+  }
+  
+  .vaccination{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    padding-top: 0px;
+  }
+  
+  .vaccination_dropdown{
+    background-color: white;
+  }
+  
+  .vaccination_header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .vaccination_left{
+    flex: 0.9;
+  }
+  
+  .vaccination_right{
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .vaccination_right .MuiCardContent-root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .vaccination_card > h3{
+    text-align: center;
+    color:chocolate
+  }
+
+  .vaccination_graph{
+    flex-grow: 1;
+  }
+
+  .vaccination_tableTitle{
+      margin-top: 20px;
+  }
+
+  .vaccination_graphTitle{
+    margin-bottom: 20px;
+    text-align: center;
+    color:chocolate;
+  }
+
+  .vaccination_infoBox:not(:first-child){
+    margin-right:15px;
+  }
+
+  .vaccination_infoBox_title > h4{
+    color: #400438;
+  }
+  
+ .vaccination_infoBox_cases{
+  color: #a83299;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 990px){
+    .vaccination{
+      flex-direction: column;
+    }
+    .vaccination_graph{
+        height: 100%;
+      }
+    .vaccination_infoBox_title{
+        font-size: 0.8rem !important;
+        text-align: center !important;
+        font-weight: bolder !important;
+    }
+  }

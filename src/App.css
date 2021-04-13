@@ -1,64 +1,52 @@
 *{
-  margin:0;
+    margin:0;
 }
 
-body{
-  background-color: whitesmoke;
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 0;
+    padding-top:0;
 }
 
-.app{
-  display: flex;
-  justify-content: space-evenly;
-  padding: 20px;
+.header_left{
+    flex:0.8;
+    padding-left: 5%;
 }
 
-.app_dropdown{
-  background-color: white;
-}
-
-.app_header >h1{
-  color:red;
-  font-size: 2rem;
-}
-
-.app_header{
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  justify-content: space-between;
-}
-
-.app_left{
-  flex: 0.9;
-}
-
-.app_right{
-  display: flex;
-  flex-direction: column;
-}
-
-.app_right .MuiCardContent-root {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.app_graph{
-  flex-grow: 1;
-}
-
-.app_stats{
-  display: flex;
-  justify-content: space-between;
-}
-
-.app_graphTitle{
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-@media (max-width: 990px){
-  .app{
-    flex-direction: column;
+.header_left >h1{
+    color:red;
+    font-size: 2rem;
+    padding: 10px;
   }
+
+.header_left>h4{
+    color:indianred;
+    padding:10px;
+    padding-top: 0;
 }
+  
+.header_right{
+    display: flex;
+    align-items:center;
+    justify-content: space-evenly;
+    flex-grow: 0.1;
+    padding-right: 2%;
+  }
+
+  @media (max-width: 990px){
+    .header_right{
+        flex-direction: column;
+    }
+    .header_left >h1{
+        font-size:x-large;
+        text-align: left;
+        font-weight:900;
+    }
+    .header_left >h4{
+        font-size: small;
+        font-weight: bolder;
+        text-align:center;
+    }
+  }

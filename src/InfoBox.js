@@ -11,7 +11,7 @@ function InfoBox({ title, cases, isRed, isOrange, active, total, ...props}) {
             <CardContent>
                 {/*Title*/}
                 <Typography className='infoBox_title' color='textSecondary'>
-                    {title}(1d)
+                    {title}
                 </Typography>
 
                 {/*Number of Cases*/}

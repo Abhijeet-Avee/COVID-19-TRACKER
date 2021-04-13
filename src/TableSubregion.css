@@ -1,0 +1,28 @@
+.tableSubregion{
+    margin-top: 20px;
+    overflow: scroll;
+    height: 200px;
+    color: #6a5d5d;
+}
+
+.tableSubregion tr{
+    display: flex;
+    justify-content: space-between;
+    width:300px;
+}
+
+.tableSubregion td{
+    padding: 0.5rem;
+}
+
+.tableSubregion tr:nth-of-type(odd) {
+    background-color: #f3f2f8;
+}
+
+@media (max-width: 990px){
+    .tableSubregion tr{
+        display: flex;
+        justify-content: space-between;
+        width:100%;
+    }
+  }

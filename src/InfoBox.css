@@ -39,3 +39,16 @@
 .infoBox_cases--red{
     color:  red !important;
 }
+@media (max-width: 990px){
+    .infoBox_cases{
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    .infoBox_title{
+        font-size: 0.8rem !important;
+        text-align: center !important;
+        font-weight: bolder !important;
+    } 
+  }
